@@ -1,5 +1,4 @@
 import { Component , OnInit} from '@angular/core';
-import { MonacoEditorLoaderService } from "@materia-ui/ngx-monaco-editor";
 import { contractSource } from './data/contract-source';
 import { invoiceSource } from './data/invoice-source';
 import { porSource } from './data/por-source';
@@ -19,41 +18,12 @@ export class AppComponent implements OnInit {
   functionType: string = "";
   objectType:string = "";
 
-  code = "// Write your code here" 
-
   objectSource:any
 
-  constructor(private monacoLoaderService: MonacoEditorLoaderService) {};
+
+  constructor() {};
 
   ngOnInit() {};
-
-  registerJSValidator() {
-
-    monaco.languages.typescript.javascriptDefaults.setDiagnosticsOptions({
-      noSemanticValidation: false,
-      noSyntaxValidation: false
-    });
-
-    monaco.languages.typescript.javascriptDefaults.setCompilerOptions({
-      target: monaco.languages.typescript.ScriptTarget.ES2020,
-      allowNonTsExtensions: true
-    });
-
-    if(this.objectSource) {
-      const libUri = 'ts:filename/facts.d.ts';
-      monaco.languages.typescript.javascriptDefaults.addExtraLib(this.objectSource, libUri);
-      monaco.editor.createModel(this.objectSource, 'typescript', monaco.Uri.parse(libUri));
-
-      const textEditor:HTMLElement = document.getElementById('textEditor') as HTMLElement;
-      
-      monaco.editor.create(textEditor, {
-        value: this.code,
-        language: 'javascript',
-        theme: 'vs-dark'
-      });
-    };
-    
-  };
 
   onChange(event: any) {
   switch (event.target.value) {
@@ -76,7 +46,6 @@ export class AppComponent implements OnInit {
       this.objectSource = contractSource;
       break;
     }
-    this.registerJSValidator();
   };
 
   functionDetails = false;

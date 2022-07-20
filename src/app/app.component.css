@@ -4,16 +4,16 @@
     box-sizing: border-box;
 }
 
-#textEditor{
-    height: 600px;
-    width: 1250px;
-}
-
 input{
     background-color: aliceblue;
     border: 1px solid gray;
     border-radius: 5px;
     margin-left: 10px;
+}
+
+.textEditor{
+    height: 600px;
+    width: 1250px;
 }
 
 select{

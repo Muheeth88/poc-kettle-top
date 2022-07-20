@@ -8,7 +8,7 @@
       <p class="m-3"> Function Name</p>
       <button
       class="btn btn-primary m-4 py-1 px-3"
-      (click)="handleFunctionDetails()"> + New Function</button>
+      routerLink="/functions" (click)="handleFunctionDetails()"> + New Function</button>
   </div>
   <div class="col col-10 ">
       <div *ngIf="functionDetails" class="row mx-3 my-4">
@@ -45,9 +45,9 @@
       </div>
 
       <!-- Text Editor -->
-      <ng-container>
-        <div id="textEditor"></div>
-      </ng-container> 
+      <ng-container *ngIf="objectType" class="row m-2">
+          <app-text-editor [objectSource]="objectSource" ></app-text-editor>
+      </ng-container>
       <!-- ----------------------------------------------------------------------------------- -->
 
   </div>

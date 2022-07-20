@@ -5,10 +5,12 @@ import { MonacoEditorModule, MONACO_PATH } from '@materia-ui/ngx-monaco-editor';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TextEditorComponent } from './text-editor/text-editor.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TextEditorComponent
   ],
   imports: [
     BrowserModule,
